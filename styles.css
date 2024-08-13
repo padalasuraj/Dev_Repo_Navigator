@@ -1,14 +1,74 @@
 body {
+  margin: 0;
+  overflow: hidden;
+  background: linear-gradient(135deg, #06032b, #380025);
+  background-size: 400% 400%;
+  animation: gradientAnimation 6s ease infinite;
+  color: #ffffff; /* Light text color for visibility */
+  overflow-y: scroll; /* Ensure vertical scrolling is enabled */
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 20px;
 }
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+#search-container,
+.profile-container,
+.repos-container,
+.pagination,
+.navigation {
+  position: relative;
+  z-index: 1;
+}
+
+.samplecardplaceholder,
+.repo-card {
+  background-color: #1e1e1e; /* Slightly lighter dark color for cards */
+  color: #535151;
+  border: 2px solid #333; /* Darker border */
+}
+
+#search-input {
+  background-color: #333;
+  color: #adadad;
+  border: 1px solid #555;
+}
+
+#search-button {
+  background-color: #007bff;
+  border-color: #0056b3;
+}
+
+/* Adjusting button colors for better contrast */
+button {
+  background-color: #333;
+  border-color: #555;
+  color: #ffffff;
+}
+
+button:hover {
+  background-color: #555;
+  border-color: #007bff;
+}
+
 .sampleprofile-container {
   text-align: left;
   margin-left: 110px;
   margin-right: auto;
 }
+
 #sampleprofile {
   display: flex;
   align-items: flex-start;
@@ -25,9 +85,9 @@ body {
 #sampleuser-details {
   display: flex;
   flex-direction: column;
-
   margin-left: 80px;
 }
+
 .samplecontainer {
   margin-top: 50px;
   display: grid;
@@ -45,17 +105,84 @@ body {
   text-align: center;
   width: 100%;
   box-sizing: border-box;
-  border: 2px solid black;
+  border: 2px solid rgb(46, 14, 46);
   overflow: auto;
   padding: 20px;
 }
 
 .profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px auto;
+  padding: 20px;
+  background: #1e1e1e;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 1200px;
+}
+
+#sampleprofile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+#sampleavatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 5px solid #3f5efb;
+  object-fit: cover;
+}
+
+#sampleuser-details {
   text-align: left;
-  margin: 20px;
-  margin-right: auto;
-  margin-left: 80px;
-  height: auto;
+  color: #ffffff;
+}
+
+#username {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0;
+}
+
+#location {
+  font-size: 20px;
+  margin: 5px 0;
+}
+
+#bio {
+  font-size: 16px;
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+.github-button {
+  display: flex;
+  align-items: center;
+  padding: 12px 24px;
+  background: #3f5efb;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease, transform 0.3s ease;
+  gap: 8px;
+}
+
+.github-button i {
+  font-size: 24px;
+}
+
+.github-button:hover {
+  background: #2e3a8a;
+  transform: translateY(-2px);
 }
 
 #profile {
@@ -83,33 +210,174 @@ body {
   margin-left: 2px;
   margin-right: auto;
 }
+.github-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #ffffff; /* Text color */
+  background: linear-gradient(
+    45deg,
+    #4a3c5b,
+    #8a4b6e
+  ); /* Gradient background */
+  border: 1px solid transparent;
+  border-radius: 50px;
+  transition: background 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease,
+    color 0.3s ease;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* Soft shadow */
+  position: relative;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Text shadow for readability */
+}
+
+/* GitHub icon */
+.github-button .icon {
+  width: 24px;
+  height: 24px;
+  background: url("https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png")
+    no-repeat center center;
+  background-size: contain;
+  margin-right: 12px;
+}
+
+/* Text styling */
+.github-button .text {
+  z-index: 1;
+}
+
+/* Background overlay effect */
+.github-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(0, 0, 0, 0.3) 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+  border-radius: 50px;
+}
+
+/* Hover effect */
+.github-button:hover {
+  background: linear-gradient(
+    45deg,
+    #6d4c8d,
+    #b71c1c
+  ); /* Lighter gradient on hover */
+  color: #ffffff; /* Keep text color white */
+  transform: scale(1.05); /* Slightly enlarge */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35); /* Enhanced shadow */
+}
+
+/* Hover overlay effect */
+.github-button:hover::before {
+  opacity: 0.3;
+  animation: backgroundShift 0.6s ease-in-out;
+}
+
+/* Active state */
+.github-button:active {
+  background: linear-gradient(
+    45deg,
+    #b71c1c,
+    #6d4c8d
+  ); /* Darker gradient when active */
+  transform: scale(0.98); /* Slightly shrink */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* Focus state */
+.github-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.6); /* Focus ring */
+}
+
+/* Gradient animation */
+@keyframes backgroundShift {
+  0% {
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.2) 20%,
+      rgba(0, 0, 0, 0.3) 70%
+    );
+  }
+  50% {
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.3) 20%,
+      rgba(0, 0, 0, 0.4) 70%
+    );
+  }
+  100% {
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.2) 20%,
+      rgba(0, 0, 0, 0.3) 70%
+    );
+  }
+}
+
+.github-button {
+  animation: backgroundShift 6s ease infinite; /* Apply the gradient animation */
+}
 
 #search-container {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  justify-content: center;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 #search-input {
-  padding: 10px;
-  margin-right: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  background-color: #2e2e2e;
+  border: none;
+  border-radius: 10px 0 0 10px;
+  color: white;
+  font-size: 16px;
+  padding: 12px 16px;
+  width: 100%;
+  max-width: 300px; /* Adjust as needed */
+  transition: background 0.3s, border-color 0.3s;
+}
+
+#search-input::placeholder {
+  color: rgb(184, 184, 184);
+}
+
+#search-input:focus {
   outline: none;
+  background-color: #3a3a3a; /* Slightly lighter on focus */
 }
 
 #search-button {
-  padding: 10px 20px;
-  border: 1px solid #007bff;
-  background-color: #007bff;
-  color: #fff;
-  border-radius: 5px;
+  background: linear-gradient(90deg, #500212 0%, #01126b 100%);
+  border: none;
+  border-radius: 0 10px 10px 0;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
   cursor: pointer;
-  outline: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s, transform 0.1s;
 }
 
 #search-button:hover {
-  background-color: #0056b3;
+  background: linear-gradient(90deg, #3f5efb 0%, #fc466b 100%);
+}
+
+#search-button:active {
+  transform: translateY(2px); /* Subtle press effect */
 }
 
 /* Add styles for the tags */
@@ -119,87 +387,297 @@ body {
 
 .tag {
   display: inline-block;
-  color: white;
-  background-color: #007bff;
+  color: rgb(141, 135, 135);
+  background-color: #04012e;
   padding: 5px;
   margin-right: 5px;
   border-radius: 5px;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px;
-}
-
-#search-container {
-  margin-bottom: 20px;
 }
 
 .repos-container {
   margin-top: 50px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
   gap: 20px;
-  grid-column-gap: 30px;
   justify-content: center;
-  width: 85%;
-  border-radius: 20%;
+  width: 100%; /* Full width */
+  max-width: 1200px; /* Max width to prevent stretching */
+  padding: 0 10px; /* Add padding for spacing on small screens */
+  box-sizing: border-box;
+  background: linear-gradient(
+    135deg,
+    #06032b,
+    #380025
+  ); /* Dark gradient background */
+  border-radius: 12px; /* Rounded corners */
+  padding: 20px; /* Spacing around the grid */
 }
 
+/* Card Styles */
 .repo-card {
-  border: 2px solid #ddd;
-  padding: 10px;
-  text-align: center;
-
+  position: relative;
+  width: 100%; /* Full width of grid item */
+  max-width: 100%; /* Ensure it doesn’t exceed container width */
+  aspect-ratio: 450 / 200; /* Adjusted aspect ratio to decrease height */
+  background-color: #1e1e1e; /* Dark background for dark mode */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  padding: 20px; /* Increased padding for better spacing */
+  gap: 12px;
+  border-radius: 12px; /* Slightly larger border radius */
+  color: white;
+  cursor: pointer;
+  overflow: hidden;
   box-sizing: border-box;
-  border: 2px solid black;
-  overflow: auto;
-  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease; /* Smooth transitions */
+  /* Initial Animation */
+  animation: colorShift 5s linear infinite; /* Continuous color shift animation */
+}
+
+/* Keyframes for Color Animation */
+@keyframes colorShift {
+  0% {
+    background: linear-gradient(135deg, #06032b, #380025);
+  }
+  50% {
+    background: linear-gradient(135deg, #0a0a0a, #4a1a1a);
+  }
+  100% {
+    background: linear-gradient(135deg, #06032b, #380025);
+  }
+}
+
+.repo-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  left: -5px;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px; /* Match border-radius of the card */
+  background: linear-gradient(-45deg, #7d00ff 0%, #40c9ff 100%);
+  z-index: -10;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.repo-card::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
+  transform: translate3d(0, 0, 0) scale(0.95);
+  filter: blur(20px);
+}
+
+.repo-card:hover::before {
+  transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
+  background: linear-gradient(
+    -45deg,
+    #6a00f4 0%,
+    #262f33 100%
+  ); /* Slight color change on hover */
+}
+
+.repo-card:hover::after {
+  filter: blur(30px);
+}
+
+.repo-card:hover {
+  transform: scale(1.05); /* Slightly enlarge card on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6); /* Enhanced shadow on hover */
+  background-color: #222; /* Slightly lighter dark color for hover */
 }
 
 .repo-card h2 {
-  font-size: 1.5rem;
+  font-size: 22px; /* Larger font size for better readability */
+  font-weight: 700;
   margin-bottom: 10px;
+  text-align: center; /* Center align heading */
 }
 
 .repo-card p {
-  font-size: 1rem;
-  color: #555;
+  font-size: 16px; /* Slightly larger font size */
+  text-align: center; /* Center align paragraph text */
 }
 
-.repo-card .tags {
-  margin-top: 10px;
-}
-
-.repo-card .tag {
-  display: inline-block;
-  color: #fff;
-  background-color: #007bff;
-  padding: 5px;
-  margin-right: 5px;
-  border-radius: 5px;
+.repo-card p:last-child {
+  color: #e81cff;
+  font-weight: 600;
 }
 
 .repo-card a {
-  display: block;
-  margin-top: 10px;
-  color: #007bff;
+  color: #e81cff;
   text-decoration: none;
   font-weight: bold;
+  margin-top: auto;
+  text-align: center; /* Center align link */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth color and transform transition */
 }
 
 .repo-card a:hover {
   text-decoration: underline;
+  color: #ff9aab; /* Highlight color on hover */
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+/* Keyframes for hover effect animation */
+@keyframes placeholderHoverEffect {
+  0% {
+    transform: scale(1) rotate(0deg);
+    background: linear-gradient(135deg, #6a00f4, #262f33);
+  }
+  100% {
+    transform: scale(1.05) rotate(1deg);
+    background: linear-gradient(135deg, #7d00ff, #40c9ff);
+  }
+}
+
+/* Apply the animation to .samplecardplaceholder */
+.samplecardplaceholder {
+  border: 1px solid #444; /* Subtle border for professionalism */
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #1e1e1e; /* Consistent dark background */
+  color: #ffffff; /* Light text color for readability */
+  position: relative;
+  border-radius: 8px; /* Rounded corners for a modern look */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  overflow: hidden; /* Hide overflow for clean edges */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+}
+
+/* Apply hover animation */
+.samplecardplaceholder:hover {
+  animation: placeholderHoverEffect 0.6s ease forwards;
+}
+
+/* Keyframes for color animation */
+@keyframes colorShift {
+  0% {
+    background: linear-gradient(135deg, #06032b, #380025);
+  }
+  50% {
+    background: linear-gradient(135deg, #0a0a0a, #4a1a1a);
+  }
+  100% {
+    background: linear-gradient(135deg, #06032b, #380025);
+  }
+}
+
+.samplecardplaceholder::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 8px; /* Match border-radius of the card */
+  background: linear-gradient(-45deg, #7d00ff 0%, #40c9ff 100%);
+  z-index: -1;
+  transition: opacity 0.6s ease;
+  opacity: 0.1; /* Subtle background effect */
+}
+
+.samplecardplaceholder::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
+  transform: scale(0.9);
+  filter: blur(15px);
+  z-index: -2;
+  transition: filter 0.6s ease;
+}
+
+.samplecardplaceholder:hover::before {
+  opacity: 0.2; /* Increase visibility on hover */
+}
+
+.samplecardplaceholder:hover::after {
+  filter: blur(20px); /* Slightly increase blur on hover */
+}
+
+/* Dark Mode Specific Styles */
+@media (prefers-color-scheme: dark) {
+  .repos-container {
+    background: linear-gradient(
+      135deg,
+      #06032b,
+      #380025
+    ); /* Dark gradient background */
+  }
+
+  .repo-card {
+    background-color: #121212; /* Darker background for dark mode */
+    border: 1px solid #333; /* Subtle border for better separation */
+  }
+
+  .repo-card::before {
+    background: linear-gradient(-45deg, #7d00ff 0%, #40c9ff 100%);
+  }
+
+  .repo-card::after {
+    background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
+  }
+
+  .repo-card a {
+    color: #ff9aab; /* Highlight color for dark mode */
+  }
+
+  .repo-card:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8); /* Darker shadow for dark mode */
+  }
 }
 
 .pagination {
-  margin-top: 50px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin: 20px 0;
 }
 
+.pagination a {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 0 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.pagination a:hover,
+.pagination a.active {
+  background-color: #3f5efb;
+  color: white;
+  border-color: #3f5efb;
+}
+
+.pagination a.pagination-nav {
+  font-weight: bold;
+  background-color: #f0f0f0;
+  border-color: #ddd;
+}
+
+.pagination a.pagination-nav:hover {
+  background-color: #ddd;
+}
+
+.pagination a.active {
+  background-color: #3f5efb;
+  color: white;
+  border-color: #3f5efb;
+}
+
+.pagination a:focus {
+  outline: none;
+}
 .navigation {
   margin-top: 20px;
   display: flex;
@@ -218,16 +696,43 @@ body {
   background-color: #fff;
 }
 
-.pagination a:hover {
-  background-color: #f2f2f2;
+.pagination a {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 0 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.pagination a:hover,
+.pagination a.active {
+  background-color: #3f5efb;
+  color: white;
+  border-color: #3f5efb;
+}
+
+.pagination a.pagination-nav {
+  font-weight: bold;
+  background-color: #f0f0f0;
+  border-color: #ddd;
+}
+
+.pagination a.pagination-nav:hover {
+  background-color: #ddd;
 }
 
 .pagination a.active {
-  color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #3f5efb;
+  color: white;
+  border-color: #3f5efb;
 }
 
+.pagination a:focus {
+  outline: none;
+}
 button {
   padding: 10px 20px;
   border: 1px solid #ddd;
