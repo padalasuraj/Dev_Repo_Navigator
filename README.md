@@ -5,18 +5,22 @@ Welcome to User Profile Explorer, a web application designed for seamless naviga
 ## Features
 
 1. **Profile Placeholder Display:**
+
    - The landing page showcases a visually appealing placeholder file representing an individual's profile.
    - This placeholder offers users a glimpse into the structure and layout of an individual's profile.
 
 2. **Search Bar Feature:**
+
    - A prominent search bar is provided for easy navigation to any individual's profile.
    - Users can input the username or relevant details to explore specific profiles.
 
 3. **User-Focused Design:**
+
    - The design prioritizes user experience, emphasizing simplicity and ease of use.
    - Users can intuitively understand the purpose of the page, fostering a positive interaction.
 
 4. **Interactive Elements:**
+
    - The search bar and other interactive elements enhance user engagement, providing a dynamic interface.
    - Users can actively participate in navigating through profiles, contributing to an immersive experience.
 
@@ -31,7 +35,7 @@ To explore the User Profile Explorer, follow these steps:
 1. Clone the repository to your local machine.
    ```bash
    git clone https://github.com/padalasuraj/user-profile-explorer.git
-
+   ```
 
 ![Screenshot (330)](https://github.com/padalasuraj/padalasuraj/assets/108484886/6af1c631-92d4-4c56-9baf-3a18fdff77d0)
 
@@ -39,8 +43,4 @@ To explore the User Profile Explorer, follow these steps:
 
 ![Screenshot (333)](https://github.com/padalasuraj/padalasuraj/assets/108484886/3f0b2c2f-8360-4967-b359-d2a9c410c5a5)
 
-
 ![Screenshot (332)](https://github.com/padalasuraj/padalasuraj/assets/108484886/b974e374-b6b2-4ce8-8870-168c25af2e86)
-
-
-
